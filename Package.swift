@@ -109,16 +109,18 @@ let package = Package(
     name: "Realm",
     platforms: [
         .macOS(.v10_10),
-        .iOS(.v11),
+        .iOS(.v9),
         .tvOS(.v9),
         .watchOS(.v2)
     ],
     products: [
         .library(
             name: "Realm",
+            type: .dynamic,
             targets: ["Realm"]),
         .library(
             name: "RealmSwift",
+            type: .dynamic,
             targets: ["Realm", "RealmSwift"]),
     ],
     dependencies: [
