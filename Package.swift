@@ -124,7 +124,7 @@ let package = Package(
             targets: ["Realm", "RealmSwift"]),
     ],
     dependencies: [
-        .package(name: "RealmDatabase", url: "https://github.com/monchote/realm-core", .branch("master"))
+        .package(url: "https://github.com/monchote/realm-core", .branch("master"))
     ],
     targets: [
       .target(
