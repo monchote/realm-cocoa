@@ -109,7 +109,7 @@ let package = Package(
     name: "Realm",
     platforms: [
         .macOS(.v10_10),
-        .iOS(.v11),
+        .iOS(.v9),
         .tvOS(.v9),
         .watchOS(.v2)
     ],
@@ -122,7 +122,7 @@ let package = Package(
             targets: ["Realm", "RealmSwift"]),
     ],
     dependencies: [
-        .package(name: "RealmDatabase", url: "https://github.com/realm/realm-core", .exact(Version(coreVersionStr)!))
+        .package(name: "RealmDatabase", url: "https://github.com/realm/realm-core", .branch("iOS9"))
     ],
     targets: [
       .target(
@@ -223,7 +223,9 @@ let package = Package(
                 "Realm/RLMUserAPIKey.mm"
             ],
             publicHeadersPath: "include",
-            cxxSettings: cxxSettings
+            cxxSettings: cxxSettings + [
+                .unsafeFlags(["-fno-aligned-new"])
+            ]
         ),
         .target(
             name: "RealmSwift",
