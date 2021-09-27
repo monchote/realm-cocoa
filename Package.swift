@@ -229,7 +229,6 @@ let package = Package(
         ),
         .target(
             name: "RealmSwift",
-            dependencies: ["Realm"],
             path: "RealmSwift",
             exclude: [
                 "Nonsync.swift",
